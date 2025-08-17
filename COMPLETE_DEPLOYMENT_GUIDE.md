@@ -607,6 +607,10 @@ If you want to publish to Google Play Store:
     1. The render.yaml has been updated to use `npm install` instead of `npm ci`
     2. Push the updated render.yaml to GitHub
     3. Redeploy on Render
+  - **Type definition errors**: If you see "Cannot find type definition file for 'jest'" or similar:
+    1. The tsconfig.build.json has been updated to exclude test-related types
+    2. Push the updated tsconfig.build.json to GitHub
+    3. Redeploy on Render
 
 **Issue**: Database connection fails
 - **Solution**: 
