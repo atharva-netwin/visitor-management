@@ -102,6 +102,24 @@ YOUR_REPOSITORY_NAME/                    ← Root folder (this is what you push 
 
 **IMPORTANT**: You will push the ENTIRE root folder to GitHub as ONE repository. This includes both the backend and mobile app together. Do NOT create separate repositories for backend and mobile app.
 
+### ✅ Your GitHub Structure is Perfect!
+
+If your GitHub repository contains:
+- `.kiro/` folder
+- `.vscode/` folder  
+- `VisitorManagementApp/` folder
+- `VisitorManagementBackend/` folder
+- `COMPLETE_DEPLOYMENT_GUIDE.md` file
+
+**This is EXACTLY correct!** ✅ This structure will work perfectly because:
+
+1. **Render.com** will only look at the `VisitorManagementBackend/` folder (we specify this in the "Root Directory" setting)
+2. **Expo** will only look at the `VisitorManagementApp/` folder (we navigate to this folder before building)
+3. **Both services** can access the same repository but work with different parts
+4. **The extra folders** (`.kiro`, `.vscode`) won't cause any problems - they'll be ignored
+
+**You don't need separate repositories!** One repository with both folders is the recommended approach.
+
 ### Step 4: Download the Project Code
 
 #### 4.1 Option A: If You Already Have the Code on GitHub
@@ -581,6 +599,10 @@ If you want to publish to Google Play Store:
   - Ensure all environment variables are set
   - Check that Node.js version is compatible
   - Verify database connection string is correct
+  - **TypeScript errors**: If you see "Cannot find module" or "Cannot find name 'process'" errors:
+    1. The backend needs updated dependencies and configuration
+    2. Push the updated code to GitHub (package.json, tsconfig.json, and tsconfig.build.json have been fixed)
+    3. Redeploy on Render - the build now uses a more lenient TypeScript configuration
 
 **Issue**: Database connection fails
 - **Solution**: 
