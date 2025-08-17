@@ -1,3 +1,5 @@
+/// <reference types="node" />
+
 import { redis } from './redis';
 import { logger } from '../utils/logger';
 import crypto from 'crypto';
@@ -147,7 +149,7 @@ class SessionManager {
         return null;
       }
       
-      return JSON.parse(data);
+      return JSON.parse(.data);
     } catch (error) {
       logger.error(`Failed to get refresh token:`, error);
       return null;

@@ -1,3 +1,5 @@
+/// <reference types="node" />
+
 import { Request, Response, NextFunction } from 'express';
 import { logWithCorrelation, logSecurityEvent } from '@/utils/logger';
 import { v4 as uuidv4 } from 'uuid';
