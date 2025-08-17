@@ -149,7 +149,7 @@ class SessionManager {
         return null;
       }
       
-      return JSON.parse(.data);
+      return JSON.parse(data);
     } catch (error) {
       logger.error(`Failed to get refresh token:`, error);
       return null;
