@@ -321,7 +321,7 @@ HEALTH_CHECK_ENABLED=true
    - **Branch**: `main`
    - **Root Directory**: `VisitorManagementBackend`
    - **Runtime**: `Node`
-   - **Build Command**: `npm ci && npm run build`
+   - **Build Command**: `npm install && npm run build`
    - **Start Command**: `npm start`
    - **Instance Type**: `Free`
 
@@ -603,6 +603,10 @@ If you want to publish to Google Play Store:
     1. The backend needs updated dependencies and configuration
     2. Push the updated code to GitHub (package.json, tsconfig.json, and tsconfig.build.json have been fixed)
     3. Redeploy on Render - the build now uses a more lenient TypeScript configuration
+  - **npm ci sync errors**: If you see "package.json and package-lock.json are not in sync":
+    1. The render.yaml has been updated to use `npm install` instead of `npm ci`
+    2. Push the updated render.yaml to GitHub
+    3. Redeploy on Render
 
 **Issue**: Database connection fails
 - **Solution**: 
