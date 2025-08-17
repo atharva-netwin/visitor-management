@@ -1,0 +1,70 @@
+services:
+  - type: web
+    name: visitor-management-backend
+    runtime: node
+    plan: free
+    region: oregon # Choose region closest to your users
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: DB_SSL
+        value: true
+      - key: JWT_ACCESS_EXPIRY
+        value: 15m
+      - key: JWT_REFRESH_EXPIRY
+        value: 7d
+      - key: BCRYPT_SALT_ROUNDS
+        value: 12
+      - key: LOG_LEVEL
+        value: info
+      - key: HEALTH_CHECK_ENABLED
+        value: true
+      # Database configuration - these will be set as environment variables in Render dashboard
+      # - key: DB_HOST
+      #   value: # Set in Render dashboard
+      # - key: DB_PORT
+      #   value: 5432
+      # - key: DB_NAME
+      #   value: postgres
+      # - key: DB_USER
+      #   value: postgres
+      # - key: DB_PASSWORD
+      #   value: # Set in Render dashboard (sensitive)
+      # - key: JWT_ACCESS_SECRET
+      #   value: # Set in Render dashboard (sensitive)
+      # - key: JWT_REFRESH_SECRET
+      #   value: # Set in Render dashboard (sensitive)
+      # - key: REDIS_HOST
+      #   value: # Set in Render dashboard (optional)
+      # - key: REDIS_PORT
+      #   value: 6379
+      # - key: REDIS_PASSWORD
+      #   value: # Set in Render dashboard (optional)
+      # - key: CORS_ORIGINS
+      #   value: # Set in Render dashboard (comma-separated list)
+    autoDeploy: true
+    branch: main # Deploy from main branch
+    rootDir: VisitorManagementBackend # If backend is in subdirectory
+    
+    # Free tier limitations:
+    # - 512 MB RAM
+    # - 0.1 CPU
+    # - 750 hours/month (sleeps after 15 minutes of inactivity)
+    # - Custom domains available
+    
+    # Health check configuration
+    healthCheckPath: /api/health
+    healthCheckInterval: 30s
+    healthCheckTimeout: 10s
+    healthCheckThreshold: 3
+    
+    # Disk storage (free tier gets 1GB)
+    disk:
+      name: visitor-management-data
+      mountPath: /app/logs
+      sizeGB: 1
