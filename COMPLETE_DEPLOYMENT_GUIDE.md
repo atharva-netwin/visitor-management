@@ -624,6 +624,12 @@ If you want to publish to Google Play Store:
     2. Uses `--skipLibCheck` for maximum compatibility
     3. Includes only production files and excludes all test files
     4. Push the updated files to GitHub and redeploy
+  - **Node.js global errors**: If you see "Cannot find name 'process'" or crypto/fs/path module errors:
+    1. Removed DOM library from tsconfig.json (conflicts with Node.js globals)
+    2. Simplified TypeScript configuration by removing explicit types/typeRoots
+    3. Added global.d.ts file to explicitly declare Node.js globals
+    4. This ensures Node.js globals like process, require, module, crypto, fs, path are available
+    5. Push the updated tsconfig.json and global.d.ts to GitHub and redeploy
 
 **Issue**: Database connection fails
 - **Solution**: 
