@@ -4,7 +4,7 @@
   "description": "Backend API for Visitor Management App",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "tsc --skipLibCheck",
     "start": "node dist/index.js",
     "start:production": "node dist/scripts/start-production.js",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",

@@ -607,10 +607,10 @@ If you want to publish to Google Play Store:
     1. The render.yaml has been updated to use `npm install` instead of `npm ci`
     2. Push the updated render.yaml to GitHub
     3. Redeploy on Render
-  - **Type definition errors**: If you see "Cannot find type definition file for 'jest'" or similar:
-    1. The tsconfig.build.json has been updated to exclude test-related types
-    2. Push the updated tsconfig.build.json to GitHub
-    3. Redeploy on Render
+  - **Type definition errors**: If you see "Cannot find type definition file" or "Cannot find name 'process'" errors:
+    1. The build configuration has been simplified to use `tsc --skipLibCheck`
+    2. The main tsconfig.json has been updated with proper Node.js types and exclusions
+    3. Push the updated configuration files to GitHub and redeploy on Render
 
 **Issue**: Database connection fails
 - **Solution**: 
