@@ -619,6 +619,11 @@ If you want to publish to Google Play Store:
     1. The build now explicitly excludes test files and only compiles production code
     2. Only includes necessary source directories for production build
     3. Push the updated package.json to GitHub and redeploy
+  - **Module resolution errors**: If you see "Cannot find module" errors:
+    1. Created minimal tsconfig.json with proper path mapping and Node.js support
+    2. Uses `--skipLibCheck` for maximum compatibility
+    3. Includes only production files and excludes all test files
+    4. Push the updated files to GitHub and redeploy
 
 **Issue**: Database connection fails
 - **Solution**: 
