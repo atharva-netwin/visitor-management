@@ -615,6 +615,10 @@ If you want to publish to Google Play Store:
   - **Compiler option errors**: If you see "Compiler option 'types' expects an argument":
     1. The build command has been simplified to remove problematic options
     2. Push the updated package.json to GitHub and redeploy
+  - **Syntax errors in test files**: If you see "Declaration or statement expected" in test files:
+    1. The build now explicitly excludes test files and only compiles production code
+    2. Only includes necessary source directories for production build
+    3. Push the updated package.json to GitHub and redeploy
 
 **Issue**: Database connection fails
 - **Solution**: 
