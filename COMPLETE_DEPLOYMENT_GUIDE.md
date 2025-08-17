@@ -609,9 +609,12 @@ If you want to publish to Google Play Store:
     3. Redeploy on Render
   - **Type definition errors**: If you see "Cannot find type definition file" or "Cannot find name 'process'" errors:
     1. All TypeScript configuration files have been removed (tsconfig.json, tsconfig.build.json)
-    2. Build uses completely inline TypeScript compilation with `--types ""` to exclude all type libraries
+    2. Build uses completely inline TypeScript compilation with no external type dependencies
     3. Uses `--skipLibCheck`, `--noResolve`, and `--strict false` for maximum compatibility
     4. Push the updated files to GitHub and redeploy on Render
+  - **Compiler option errors**: If you see "Compiler option 'types' expects an argument":
+    1. The build command has been simplified to remove problematic options
+    2. Push the updated package.json to GitHub and redeploy
 
 **Issue**: Database connection fails
 - **Solution**: 
