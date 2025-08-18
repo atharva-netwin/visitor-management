@@ -1,0 +1,20 @@
+SUPABASE : 
+
+project name - visitor-management-db
+password - akop@911
+
+connection string - postgresql://postgres:[YOUR-PASSWORD]@db.yewlfsfncojfxdyxftog.supabase.co:5432/postgres
+
+database password - akop5421789
+
+db host - db.yewlfsfncojfxdyxftog.supabase.co
+
+-------------------------------------------
+
+JWT_ACCESS_SECRET=caaa46a831980a17100f5972cbabfe6d3da96f85ecccdc7b04f5605ffc2852d4
+
+JWT_REFRESH_SECRET=edc981c7e1a3beb86457bbfda5349fca858928833fff8739ac88149a601e69ce
+
+
+--------------------------------------------
+

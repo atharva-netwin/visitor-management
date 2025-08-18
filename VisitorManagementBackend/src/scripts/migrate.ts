@@ -10,6 +10,9 @@ async function runMigrations() {
         // Connect to database
         await db.connect();
 
+        // Ensure migrations table exists first
+        await migrator.createMigrationsTable();
+
         // Get migration status
         const status = await migrator.getMigrationStatus();
         logger.info('Migration status:', status);
@@ -38,6 +41,7 @@ switch (command) {
         (async () => {
             try {
                 await db.connect();
+                await migrator.createMigrationsTable();
                 const status = await migrator.getMigrationStatus();
                 console.log('Migration Status:');
                 console.log(`  Executed: ${status.executed.join(', ') || 'None'}`);

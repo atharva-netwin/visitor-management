@@ -1,6 +1,9 @@
 import dotenv from 'dotenv';
+import path from 'path';
 
-dotenv.config();
+// Load environment variables from .env.local first, then .env
+dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
+dotenv.config(); // This will load .env as fallback
 
 interface Config {
   nodeEnv: string;

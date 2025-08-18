@@ -1,4 +1,4 @@
-/// <reference types="node" />
+
 
 import { Request, Response, NextFunction } from 'express';
 import rateLimit from 'express-rate-limit';
@@ -170,7 +170,7 @@ export const syncRateLimit = rateLimit({
 export const progressiveDelay: any = slowDown({
   windowMs: 15 * 60 * 1000, // 15 minutes
   delayAfter: 50, // Allow 50 requests per windowMs without delay
-  delayMs: 500, // Add 500ms delay per request after delayAfter
+  delayMs: () => 500, // Add 500ms delay per request after delayAfter (new v2 format)
   maxDelayMs: 20000, // Maximum delay of 20 seconds
   skipFailedRequests: false,
   skipSuccessfulRequests: false
